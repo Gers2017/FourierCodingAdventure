@@ -1,0 +1,9 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://byj2p522fpa6u"]
+
+[ext_resource type="FontFile" uid="uid://bhlqj6335qbms" path="res://JetBrainsMonoNerdFont-Regular.ttf" id="1_j0gne"]
+
+[resource]
+font = ExtResource("1_j0gne")
+font_size = 18
+font_color = Color(0.933333, 1, 1, 1)
+shadow_size = 2
