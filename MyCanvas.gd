@@ -5,8 +5,7 @@ const UI_PANEL_HEIGHT: float = 100.0
 const CANVAS_BACKGROUND_COLOR: Color = Color.BLACK
 const DFT_VECTOR_COLOR: Color = Color.FOREST_GREEN
 const AVG_DFT_VECTOR_COLOR: Color = Color.YELLOW
-const RIGHT_SUBWINDOW_COLOR: Color = Color.BLACK
-const VSPLIT_CHILD_COLOR: Color = Color.DIM_GRAY
+const BORDER_COLOR: Color = Color.WEB_GRAY
 
 @export
 var wave_gradient: Gradient
@@ -75,17 +74,17 @@ func _draw():
 
 	# Draw Complex numbers in the left Sub-Window
 	var windowC = windowA_hsplit[0]
+	draw_rect(windowC.make_rect(), BORDER_COLOR, false, 1.0)
 	draw_dt_vectors_for_freq_analyzed(windowC, wave_samples)
 
 	# Make WindowB the right sub-window of WindowA
 	var windowB = windowA_hsplit[1]
-	windowB.set_padding(Vector2(8.0, 8.0))
-	draw_rect(windowB.make_rect(), RIGHT_SUBWINDOW_COLOR, false, 1.0)
+	windowB.set_padding(Vector2(4.0, 0.0))
 	
 	var windowB_vsplit = windowB.make_sub_windows(2, true, Vector2.ZERO, 12.0)
 
 	for w in windowB_vsplit:
-		draw_rect(w.make_rect(), VSPLIT_CHILD_COLOR, false, 1.0)
+		draw_rect(w.make_rect(), BORDER_COLOR, false, 1.0)
 		
 	# Draw the Wave on the First Sub-Window of WindowB
 	_draw_wave_in_bounds(windowB_vsplit[0])
